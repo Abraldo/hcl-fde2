@@ -30,6 +30,8 @@ and sensor readings in Oracle Database using the PL/SQL package in
 2. Set the database connection in `backend/src/main/resources/application.yml`
    or override it with `ORACLE_URL`, `ORACLE_USERNAME`, and `ORACLE_PASSWORD`.
    The defaults expect a local Oracle service named `FREEPDB1`.
+   Set `JWT_SECRET` to a private random value of at least 32 bytes before
+   deployment; the checked-in fallback is for local development only.
 3. Start the API:
 
    ```powershell
@@ -52,8 +54,11 @@ and sensor readings in Oracle Database using the PL/SQL package in
    dashboard. Re-imports are safe: duplicate truck/timestamp readings are
    ignored.
 
-The API listens on `http://localhost:8080`. Configure `APP_CORS_ORIGINS` if the
-frontend is served from a different origin.
+The API listens on `http://localhost:8080` by default. For local frontend
+development, `frontend/proxy.conf.json` forwards `/api` requests to
+`http://localhost:8081` so the Angular server does not collide with other
+services on port 8080. Change the proxy target to your chosen `SERVER_PORT`.
+Configure `APP_CORS_ORIGINS` if the frontend is served from a different origin.
 
 ## Product and implementation guidelines
 
@@ -62,6 +67,8 @@ frontend is served from a different origin.
 - Require email and password; normalize email addresses before lookup.
 - Store only BCrypt password hashes. Never return hashes, JWTs, or secrets in
   user-list responses or logs.
+- Require at least 12 password characters and respect BCrypt's 72-byte UTF-8
+  input limit.
 - Bootstrap exactly one initial administrator, only when no users exist;
   serialize concurrent bootstrap attempts in the database.
 - Issue short-lived signed bearer tokens after successful authentication.
@@ -93,6 +100,8 @@ frontend is served from a different origin.
 - Validate imported truck IDs, ISO timestamps, finite temperatures, and
   humidity percentages; report rejected rows rather than silently accepting
   malformed data.
+- Interpret ISO timestamps without an explicit UTC offset as UTC; preserve
+  supplied offsets when they are present.
 - Enforce uniqueness for `(truck_id, reading_time)` in Oracle. Treat duplicate
   imports as idempotent and report inserted/duplicate totals.
 - Use parameterized SQL, least-privilege database credentials, and server-side

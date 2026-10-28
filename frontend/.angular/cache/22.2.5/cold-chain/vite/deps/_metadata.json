@@ -1,0 +1,82 @@
+{
+  "hash": "a57ceb27",
+  "configHash": "db9a2a39",
+  "lockfileHash": "2ef29831",
+  "browserHash": "384d4914",
+  "optimized": {
+    "@angular/common": {
+      "src": "../../../../../../node_modules/@angular/common/fesm2022/common.mjs",
+      "file": "@angular_common.js",
+      "fileHash": "c963c39e",
+      "needsInterop": false
+    },
+    "@angular/common/http": {
+      "src": "../../../../../../node_modules/@angular/common/fesm2022/http.mjs",
+      "file": "@angular_common_http.js",
+      "fileHash": "41f0687f",
+      "needsInterop": false
+    },
+    "@angular/core": {
+      "src": "../../../../../../node_modules/@angular/core/fesm2022/core.mjs",
+      "file": "@angular_core.js",
+      "fileHash": "34eda2d2",
+      "needsInterop": false
+    },
+    "@angular/forms": {
+      "src": "../../../../../../node_modules/@angular/forms/fesm2022/forms.mjs",
+      "file": "@angular_forms.js",
+      "fileHash": "9f663afe",
+      "needsInterop": false
+    },
+    "@angular/platform-browser": {
+      "src": "../../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
+      "file": "@angular_platform-browser.js",
+      "fileHash": "bd07830d",
+      "needsInterop": false
+    },
+    "@angular/router": {
+      "src": "../../../../../../node_modules/@angular/router/fesm2022/router.mjs",
+      "file": "@angular_router.js",
+      "fileHash": "8e2a142d",
+      "needsInterop": false
+    },
+    "rxjs": {
+      "src": "../../../../../../node_modules/rxjs/dist/esm5/index.js",
+      "file": "rxjs.js",
+      "fileHash": "62494532",
+      "needsInterop": false
+    },
+    "zone.js": {
+      "src": "../../../../../../node_modules/zone.js/fesm2015/zone.js",
+      "file": "zone__js.js",
+      "fileHash": "2f3b08c0",
+      "needsInterop": true
+    }
+  },
+  "chunks": {
+    "_xhr-chunk-DD6i1_ev": {
+      "file": "_xhr-chunk-DD6i1_ev.js",
+      "isDynamicEntry": false
+    },
+    "common-BHii4vIc": {
+      "file": "common-BHii4vIc.js",
+      "isDynamicEntry": false
+    },
+    "core-Czve-qcn": {
+      "file": "core-Czve-qcn.js",
+      "isDynamicEntry": false
+    },
+    "esm5-Doa4YBQt": {
+      "file": "esm5-Doa4YBQt.js",
+      "isDynamicEntry": false
+    },
+    "http-wCNxFFAc": {
+      "file": "http-wCNxFFAc.js",
+      "isDynamicEntry": false
+    },
+    "platform-browser-D4r2__C7": {
+      "file": "platform-browser-D4r2__C7.js",
+      "isDynamicEntry": false
+    }
+  }
+}
